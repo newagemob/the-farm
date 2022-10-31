@@ -1,6 +1,10 @@
-# the-farm
+# 🚜 The Farm 🚜
 
-## Quick Start
+# Index
+
+[Instagram Bot](#Instagram-Bot-Quick-Start)
+
+## Instagram Bot Quick Start
 
 Edit `engage.py` and add you ***Username***, ***Password***, and ***hashtags*** you want to use.
 
