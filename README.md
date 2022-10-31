@@ -2,9 +2,9 @@
 
 # Index
 
-[🤖 Instagram Bot](##Instagram-Bot-Quick-Start)
-[🛠 Troubleshooting](##Troubleshooting)
-[⚠️ Disclaimer](##Disclaimer)
+* [🤖 Instagram Bot](##Instagram-Bot-Quick-Start)
+* [🛠 Troubleshooting](##Troubleshooting)
+* [⚠️ Disclaimer](##Disclaimer)
 
 ## 🤖 Instagram Bot Quick Start 🤖
 
