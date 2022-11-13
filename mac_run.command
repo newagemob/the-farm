@@ -1,10 +1,11 @@
-# Mac script that simply executes the quickstart file in the root folder
-# of this repository with python
+# Mac script that simply executes the quickstart file in the root folder of this repository with python
 
-echo "Starting InstaPy with quickstart"
+echo "🤖 🚜 Starting The Farm: Instagram Bot 🚜 🤖"
 echo "===================="
+
 # get absolute path of the dir
 BASEDIR=$(dirname "$BASH_SOURCE")
 cd $BASEDIR
-# python3 ./liquid_engagement.py
-python ./engage.py
+
+# start the script
+python3 ./engage.py
