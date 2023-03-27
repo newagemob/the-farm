@@ -27,9 +27,9 @@ password = os.getenv('IG_PASSWORD')
 
 # Change these variables to match your own hashtags
 hashtags = [
-    # 'senioryear',
-    # 'senior',
-    # 'graduation',
+    'senioryear',
+    'senior',
+    'graduation',
     # # 'grad',
     # # 'classof',
 
@@ -44,19 +44,22 @@ hashtags = [
     'giftcardgiveaway',
     'giveaway',
     'sweepstakes',
-    # 'win',
+    'win',
 
-    # 'technology',
-    # 'tech',
-    # 'technews',
-    # 'code',
-    # 'startup',
-    # 'entrepreneur',
+    'technology',
+    'tech',
+    'technews',
+    'code',
+    'startup',
+    'entrepreneur',
 
-    # 'travel',
-    # 'travelblogger',
-    # 'travelgram',
-    # 'travelphotography',
+    'blogger',
+    'mommyblogger',
+    'lifestyleblogger',
+    'travel',
+    'travelblogger',
+    'travelgram',
+    'travelphotography',
 
     'christmasgifts',
     'holidays',
@@ -93,6 +96,103 @@ random_hashtags = [
     'foodie',
     'foodphotography',
     'foodblog',
+]
+
+tech_hashtags = [
+    'technology',
+    'chatgpt',
+    'gpt-3',
+    'gpt3',
+    'gpt',
+    'copilot',
+    'openai',
+    'ai',
+    'python',
+    'javascript',
+    'typescript',
+    'nodejs',
+    'cypress',
+    'react',
+    'reactnative',
+]
+
+midjournal_target_demo_hashtags = [
+    # 'writing',
+    # 'writers',
+
+    # 'studygram',
+    # 'highachiever',
+    # 'bookstagram',
+    # 'learningisfun',
+    # 'academicexcellence',
+    # 'scholarship',
+    # 'mindfullearning',
+    # 'brainpower',
+    # 'excellenceinaction',
+
+    # 'notebook',
+    # 'journal',
+    # 'journaling',
+    # 'writingcommunity',
+    # 'bulletjournal',
+    # 'planner',
+    'studying',
+    'learningcommunity',
+    'brainstorm',
+    'mindmapping',
+    'productiveday',
+    'efficientwork',
+    'officelife',
+    'remotework',
+    'onlineoffice',
+    # 'collaboration',
+    # 'networking',
+    # 'creativework',
+    # 'creativeprocess',
+    # 'innovationlab',
+    # 'entrepreneurship',
+    'startuplife',
+    'techsavvy',
+    'techlife',
+    'innovationculture',
+    'digitalproduct',
+    'artificialintelligenceapp',
+    'machinelearningapp',
+    'datascienceapp',
+    'softwaredevelopment',
+    'techtools',
+    # 'programminglife',
+    # 'codingcommunity',
+    # 'digitalcommunity',
+    # 'digitalproductivity',
+    # 'digitaltransformation',
+    # 'digitalera',
+    # 'educationreform',
+    # 'learningtechnology',
+    # 'elearning',
+    # 'mobilelearning',
+    # 'blendedlearning',
+    # 'virtuallearning',
+    # 'edchat',
+    # 'teacherlife',
+    # 'studentlife',
+    # 'studyabroad',
+    # 'onlineeducation',
+    # 'knowledgesharing',
+    # 'innovationineducation',
+    # 'lifelonglearning',
+
+    'medicalschool',
+    'premedlife',
+    'healthcareheroes',
+    'medstudentlife',
+    'doctorintraining',
+    'nursingschool',
+    'scrublife',
+    'whitecoat',
+    'anatomy',
+    'healthylifestyle',
+    'healthcare',
 ]
 
 # Change these variables to match your own comments
@@ -205,10 +305,12 @@ class InstagramBot:
                 # pick a random comment from the comments array
                 comment = random.choice(comments)
                 # write the comment in the comment input box -- textarea area-label="Add a comment..."
-                driver.find_element(By.XPATH, "//textarea[@aria-label='Add a comment...']").send_keys(comment)
+                driver.find_element(
+                    By.XPATH, "//textarea[@aria-label='Add a comment...']").send_keys(comment)
                 time.sleep(random.randint(2, 4))
                 # find the post button and click it
-                post_button = driver.find_element(By.XPATH, "//button[@type='submit']")
+                post_button = driver.find_element(
+                    By.XPATH, "//button[@type='submit']")
                 post_button.click()
                 print(f"commented {comment} on {pic_href}")
             except Exception as e:
@@ -303,7 +405,7 @@ def like_photos():
     bot.login()
 
     # actions
-    for hashtag in hashtags:
+    for hashtag in midjournal_target_demo_hashtags:
         bot.like_photo(hashtag)
         time.sleep(5)
     # end actions
@@ -329,6 +431,7 @@ def comment():
         # loop through each hashtag and comment on each photo
         bot.comment(hashtag)
         time.sleep(5)
+
 
 def unfollow():
     bot = InstagramBot(username, password)
