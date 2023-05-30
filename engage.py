@@ -237,18 +237,15 @@ class InstagramBot:
     def like_photo(self, hashtag):
         driver = self.driver
         driver.get("https://www.instagram.com/explore/tags/" + hashtag + "/")
+        time.sleep(5)
         # scroll down to load more photos
         for i in range(1, 3):
-            # scroll to bottom of page
-            # scroll back to the top so we don't look sus
-            driver.execute_script("window.scrollTo(0, 0);")
+            driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
             time.sleep(2)
 
-        # searching for photos -- grab anchors with an image inside
-        hrefs = driver.find_elements(By.TAG_NAME, "a")
+        # searching for photos -- grab anchors with a child div with th class name "_aagv" and an img tag inside of it
+        hrefs = driver.find_elements(By.XPATH, "//a[contains(@href, '/p/')]")
         pic_hrefs = [elem.get_attribute("href") for elem in hrefs]
-        # filtering out non photo links -- only want to click on hrefs with an image
-        pic_hrefs = [href for href in pic_hrefs if "/p/" in href]
 
         # sleep for a little bit longer to stay not sus
         time.sleep(random.randint(4, 6))
@@ -261,15 +258,14 @@ class InstagramBot:
             driver.execute_script(
                 "window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(2)
-            # don't look sus
-            driver.execute_script("window.scrollTo(0, 0);")
 
             try:
                 # like button is in span with the class name of "_aamw"
                 # use this to avoid `429 error: too many requests` -- Instagram does not like bots, but we must persist against the thots
                 time.sleep(random.randint(10, 20))
                 driver.find_element(
-                    By.XPATH, "//span[@class='_aamw']").click()  # like the photo
+                    By.XPATH, "//div[@class='_abm0 _abm1'/*[name()='svg'][@aria-label='Like']"
+                ).click()
                 print(f"liked {pic_href}")
             except Exception as e:
                 print(f"error liking {pic_href}")
@@ -405,7 +401,7 @@ def like_photos():
     bot.login()
 
     # actions
-    for hashtag in midjournal_target_demo_hashtags:
+    for hashtag in hashtags:
         bot.like_photo(hashtag)
         time.sleep(5)
     # end actions
