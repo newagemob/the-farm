@@ -26,7 +26,7 @@ username = os.getenv('IG_USERNAME')
 password = os.getenv('IG_PASSWORD')
 
 # Change these variables to match your own hashtags
-hashtags = [
+liquid_target_demo_hashtags = [
     'senioryear',
     'senior',
     'graduation',
@@ -40,6 +40,21 @@ hashtags = [
     'keytosuccess',
     'makemoney',
     'passiveincome',
+    
+    'daytrader',
+    'bearmarket',
+    'bullmarket',
+    'stockmarket',
+    'stocktrader',
+    'optionstrader',
+    'thetagang',
+    'theta',
+    'options',
+    'optionsstrategies',
+    'optionsstrategy',
+    'optionstrading',
+    'thewheel',
+    'wheelstrategy',
 
     'giftcardgiveaway',
     'giveaway',
@@ -262,10 +277,13 @@ class InstagramBot:
             try:
                 # like button is in span with the class name of "_aamw"
                 # use this to avoid `429 error: too many requests` -- Instagram does not like bots, but we must persist against the thots
-                time.sleep(random.randint(10, 20))
-                driver.find_element(
-                    By.XPATH, "//div[@class='_abm0 _abm1'/*[name()='svg'][@aria-label='Like']"
-                ).click()
+                time.sleep(random.randint(2, 4))
+                current_pic = driver.find_element(
+                    # grab button inside span with class name "xp7jhwk". Button's class name is "_abl-" and it has some divs in it. the div we want is the one with the class name "_abm0 _abl_" and there will be a span and svg. the span has no class name and the svg has an aria-label of "Like"
+                    By.XPATH, "//span[@class='xp7jhwk']/button[@class='_abl-'][1]"
+                )
+                print(current_pic)
+                current_pic.click()
                 print(f"liked {pic_href}")
             except Exception as e:
                 print(f"error liking {pic_href}")
