@@ -419,7 +419,7 @@ def like_photos():
     bot.login()
 
     # actions
-    for hashtag in hashtags:
+    for hashtag in liquid_target_demo_hashtags:
         bot.like_photo(hashtag)
         time.sleep(5)
     # end actions
