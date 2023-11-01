@@ -1,0 +1,9 @@
+# Environment
+secret.py
+**/streamy_bot.egg-info
+
+# Byte-compiled / optimized / DLL files
+global-exclude __pycache__
+__pycache__
+
+# Output files

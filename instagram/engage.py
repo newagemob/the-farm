@@ -18,6 +18,8 @@ import random
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
+import requests
 
 
 # Change these variables to match your own account
@@ -25,48 +27,52 @@ from selenium.webdriver.common.by import By
 username = os.getenv('IG_USERNAME')
 password = os.getenv('IG_PASSWORD')
 
+proxies = {
+    'https': 'https://67.213.212.53',
+}
+
 # Change these variables to match your own hashtags
 liquid_target_demo_hashtags = [
-    'senioryear',
-    'senior',
-    'graduation',
+    # 'senioryear',
+    # 'senior',
+    # 'graduation',
     # # 'grad',
     # # 'classof',
 
-    'finance',
-    'financetips',
-    'frugal',
-    'money',
-    'keytosuccess',
-    'makemoney',
-    'passiveincome',
+    # 'finance',
+    # 'financetips',
+    # 'frugal',
+    # 'money',
+    # 'keytosuccess',
+    # 'makemoney',
+    # 'passiveincome',
     
-    'daytrader',
-    'bearmarket',
-    'bullmarket',
-    'stockmarket',
-    'stocktrader',
-    'optionstrader',
-    'thetagang',
-    'theta',
-    'options',
-    'optionsstrategies',
-    'optionsstrategy',
-    'optionstrading',
-    'thewheel',
-    'wheelstrategy',
+    # 'daytrader',
+    # 'bearmarket',
+    # 'bullmarket',
+    # 'stockmarket',
+    # 'stocktrader',
+    # 'optionstrader',
+    # 'thetagang',
+    # 'theta',
+    # 'options',
+    # 'optionsstrategies',
+    # 'optionsstrategy',
+    # 'optionstrading',
+    # 'thewheel',
+    # 'wheelstrategy',
 
     'giftcardgiveaway',
     'giveaway',
     'sweepstakes',
     'win',
 
-    'technology',
-    'tech',
-    'technews',
-    'code',
-    'startup',
-    'entrepreneur',
+    # 'technology',
+    # 'tech',
+    # 'technews',
+    # 'code',
+    # 'startup',
+    # 'entrepreneur',
 
     'blogger',
     'mommyblogger',
@@ -76,16 +82,16 @@ liquid_target_demo_hashtags = [
     'travelgram',
     'travelphotography',
 
-    'christmasgifts',
-    'holidays',
-    'holidayseason',
-    'holidaygifts',
-    'cheer',
-    'gifts',
-    'giftideas',
+    # 'christmasgifts',
+    # 'holidays',
+    # 'holidayseason',
+    # 'holidaygifts',
+    # 'cheer',
+    # 'gifts',
+    # 'giftideas',
 
-    'birthday',
-    'birthdaygifts',
+    # 'birthday',
+    # 'birthdaygifts',
 
     'teacher',
     'teachers',
@@ -166,16 +172,16 @@ midjournal_target_demo_hashtags = [
     # 'creativeprocess',
     # 'innovationlab',
     # 'entrepreneurship',
-    'startuplife',
-    'techsavvy',
-    'techlife',
-    'innovationculture',
-    'digitalproduct',
-    'artificialintelligenceapp',
-    'machinelearningapp',
-    'datascienceapp',
-    'softwaredevelopment',
-    'techtools',
+    # 'startuplife',
+    # 'techsavvy',
+    # 'techlife',
+    # 'innovationculture',
+    # 'digitalproduct',
+    # 'artificialintelligenceapp',
+    # 'machinelearningapp',
+    # 'datascienceapp',
+    # 'softwaredevelopment',
+    # 'techtools',
     # 'programminglife',
     # 'codingcommunity',
     # 'digitalcommunity',
@@ -222,7 +228,11 @@ class InstagramBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        # self.driver = webdriver.Chrome()
+        # self.options = Options()
+        # self.options.set_preference("network.proxy.type", 1)
+        # self.options.set_preference("network.proxy.socks", "https://67.213.212.53")
+        # self.options.set_preference("network.proxy.socks_port", 9050)
+        # self.options.set_preference("network.proxy.socks_remote_dns", True)
         self.driver = webdriver.Firefox()
 
     # Login to Instagram
@@ -279,8 +289,8 @@ class InstagramBot:
                 # use this to avoid `429 error: too many requests` -- Instagram does not like bots, but we must persist against the thots
                 time.sleep(random.randint(2, 4))
                 current_pic = driver.find_element(
-                    # grab button inside span with class name "xp7jhwk". Button's class name is "_abl-" and it has some divs in it. the div we want is the one with the class name "_abm0 _abl_" and there will be a span and svg. the span has no class name and the svg has an aria-label of "Like"
-                    By.XPATH, "//span[@class='xp7jhwk']/button[@class='_abl-'][1]"
+                    # like button should be a div with a class "x1i10hfl x6umtig x1b1mbwd xaqea5y xav7gou x9f619 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x6s0dn4 xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x1ypdohk x78zum5 xl56j7k x1y1aw1k x1sxyh0 xwib8y2 xurb0ha xcdnw81" and a role "button"
+                    By.XPATH, "//div[@class='x1i10hfl x6umtig x1b1mbwd xaqea5y xav7gou x9f619 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x6s0dn4 xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x1ypdohk x78zum5 xl56j7k x1y1aw1k x1sxyh0 xwib8y2 xurb0ha xcdnw81']"
                 )
                 print(current_pic)
                 current_pic.click()
@@ -419,7 +429,7 @@ def like_photos():
     bot.login()
 
     # actions
-    for hashtag in liquid_target_demo_hashtags:
+    for hashtag in random_hashtags:
         bot.like_photo(hashtag)
         time.sleep(5)
     # end actions
