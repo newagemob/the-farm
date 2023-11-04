@@ -28,12 +28,6 @@ chmod +x mac_run.command
 ./mac_run.command
 ```
 
-If you're on **Windows**, you can run:
-
-```
-python3 engage.py
-```
-
 ## 🛠 Troubleshooting 🛠
 
 The most common issues are not being able to log in and photo URLs not loading.
