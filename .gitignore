@@ -5,3 +5,5 @@ lib
 geckodriver.*
 pyvenv.cfg
 .env
+
+.vscode

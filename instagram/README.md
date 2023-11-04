@@ -1,10 +1,14 @@
-# 🚜 The Farm 🚜
+# 🚜 IG Combine 🚜
+
+***Fully featured Instagram bot that likes and comments on photos based on hashtags, follows users based on their followers and following and unfollows users at a set interval.***
 
 # Index
 
-* [🤖 Instagram Bot](##Instagram-Bot-Quick-Start)
-* [🛠 Troubleshooting](##Troubleshooting)
-* [⚠️ Disclaimer](##Disclaimer)
+- [🚜 IG Combine 🚜](#-ig-combine-)
+- [Index](#index)
+  - [🤖 Instagram Bot Quick Start 🤖](#-instagram-bot-quick-start-)
+  - [🛠 Troubleshooting 🛠](#-troubleshooting-)
+  - [⚠️ Disclaimer ⚠️](#️-disclaimer-️)
 
 ## 🤖 Instagram Bot Quick Start 🤖
 

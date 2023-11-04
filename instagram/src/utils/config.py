@@ -2,30 +2,34 @@
 import os
 
 # Instagram credentials
-IG_USERNAME = os.getenv('IG_USERNAME')
-IG_PASSWORD = os.getenv('IG_PASSWORD')
+IG_USERNAME = os.getenv("IG_USERNAME")
+IG_PASSWORD = os.getenv("IG_PASSWORD")
 
 # Hashtag lists
 LIQUID_TARGET_DEMO_HASHTAGS = [
-  
+  # my target demo is high school seniors and college students
+  "seniorpictures",
+  "seniorportraits",
+  "houstonphotographer",
+  "weddingphotographer",
+  "houstonweddingphotographer",
+  "universityofhouston",
 ]
 
 RANDOM_HASHTAGS = [
-  "nba",
-  "basketball",
-  "rockets",
-  "houstonrockets",
-  # "mvp",
-  # "astros",
-  # "houstonastros",
-  "worldseries",
-  "dunk",
-  # "nfl",
-  # "texans",
-  # "houstontexans",
+  "fyp",
+  "newmusic",
+  "indie",
+  "christmas",
+  "holidayshopping",
+  "holidaygifts",
+  "fitness",
+  "gym",
+  "workout",
+  "health",
 ]
 
-TECH_HASHTAGS = [
+MUSIC_HASHTAGS = [
   "soundcloud",
   "soundcloudrapper",
   "soundcloudartist",
