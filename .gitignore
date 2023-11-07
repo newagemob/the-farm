@@ -7,3 +7,6 @@ pyvenv.cfg
 .env
 
 .vscode
+
+**/**/creds.sh
+**/**/**/creds.sh

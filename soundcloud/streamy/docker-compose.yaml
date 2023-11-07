@@ -1,0 +1,9 @@
+version: '3'
+services:
+  streamy-bot:
+    build: .
+    # Mount your working directory into the container
+    volumes:
+      - .:/app
+    # You can set a restart policy to ensure the bot restarts on failure
+    restart: always

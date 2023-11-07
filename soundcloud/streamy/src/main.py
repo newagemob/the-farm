@@ -17,13 +17,13 @@ soundcloud_url = secret.soundcloud["url"]
 max_streaming_duration = 100
 
 def stream_track():
+    # Set up Firefox WebDriver with options (you can customize this further)
+    options = Options()
+    options.headless = False  # Set to True for headless mode
+    driver = webdriver.Firefox(options=options)
+
     while True:  # This loop runs indefinitely until manually stopped
         try:
-            # Set up Firefox WebDriver with options (you can customize this further)
-            options = Options()
-            options.headless = False  # Set to True for headless mode
-            driver = webdriver.Firefox(options=options)
-
             # Start the Firefox WebDriver and open the SoundCloud URL
             driver.get(soundcloud_url)
             time.sleep(3)
@@ -47,8 +47,8 @@ def stream_track():
         except Exception as e:
             print(f"Error: {str(e)}")
         finally:
-            # Close the WebDriver when done
-            driver.quit()
+            # refresh the page
+            driver.refresh()
 
 if __name__ == "__main__":
     stream_track()

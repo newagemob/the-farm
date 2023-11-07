@@ -10,5 +10,3 @@ def like_photos():
     for hashtag in RANDOM_HASHTAGS:
         bot.like_photo(hashtag)
         time.sleep(5)
-
-# Create similar functions for other actions like follow, comment, and unfollow.

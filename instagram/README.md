@@ -21,11 +21,11 @@ pip install -r requirements.txt
 If you're on a **Mac**, you can run
 
 ```
-chmod +x mac_run.command
+chmod +x run.sh
 
 &&
 
-./mac_run.command
+./run.sh
 ```
 
 ## 🛠 Troubleshooting 🛠
