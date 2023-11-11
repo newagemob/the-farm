@@ -1,9 +1,9 @@
 # main.py
 import time
-from agent.actions import like_photos
+from agent.actions import like_photos, comment_photos
 
 if __name__ == "__main__":
     like_photos()
-    # comment()
+    # comment_photos()
     # follow()
     # unfollow()

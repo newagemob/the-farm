@@ -19,7 +19,10 @@ max_streaming_duration = 100
 def stream_track():
     # Set up Firefox WebDriver with options (you can customize this further)
     options = Options()
-    options.headless = False  # Set to True for headless mode
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Firefox(options=options)
 
     while True:  # This loop runs indefinitely until manually stopped
