@@ -10,3 +10,6 @@ pyvenv.cfg
 
 **/**/creds.sh
 **/**/**/creds.sh
+
+instagram/src/secret.py
+**/**/secret.py
