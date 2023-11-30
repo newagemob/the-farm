@@ -11,12 +11,13 @@ class InstagramBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.driver = webdriver.Firefox()
         self.options = Options()
         self.options.add_argument("--headless")
         self.options.add_argument("--disable-gpu")
         self.options.add_argument("--no-sandbox")
         self.options.add_argument("--disable-dev-shm-usage")
+        self.driver = webdriver.Firefox(options=self.options)
+
 
     def login(self):
         driver = self.driver
@@ -64,11 +65,11 @@ class InstagramBot:
                     By.XPATH,
                     "//div[@class='x1i10hfl x6umtig x1b1mbwd xaqea5y xav7gou x9f619 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x6s0dn4 xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x1ypdohk x78zum5 xl56j7k x1y1aw1k x1sxyh0 xwib8y2 xurb0ha xcdnw81']",
                 )
-                print(current_pic)
                 current_pic.click()
                 print(f"liked {pic_href}")
             except Exception as e:
                 print(f"error liking {pic_href}")
+                # TODO: implement counter, if more than 3 errors, break out of loop and report to discord
 
     def comment_photo(self, hashtag, comment):
         # comment button xpath: /html/body/div[7]/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/section[1]/span[2]/div/div/svg

@@ -50,8 +50,8 @@ def stream_track():
         except Exception as e:
             print(f"Error: {str(e)}")
         finally:
-            # refresh the page
-            driver.refresh()
+            # exit to close the browser tab then start the loop again
+            driver.quit()
 
 if __name__ == "__main__":
     stream_track()

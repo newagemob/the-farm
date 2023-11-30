@@ -12,4 +12,5 @@ pyvenv.cfg
 **/**/**/creds.sh
 
 instagram/src/secret.py
-**/**/secret.py
+global-exclude secret.py
+global-exclude *.pyc
